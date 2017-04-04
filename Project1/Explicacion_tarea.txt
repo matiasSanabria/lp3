@@ -1,0 +1,26 @@
+--------------------------------------------------------------------------------
+#                   7.3 Token Ring exploration                                 #
+--------------------------------------------------------------------------------
+    4- Al ejecutar el programa ./ring <nro procesos>, cuando va creciendo el 
+    numero de procesos, se puede observar que algunos procesos quedan zombies, 
+    y que el sistema operativo no asigna los recursos que necesita un proceso,
+    en el orden especifico en que fueron creados.
+    
+    5- Al colocar el wait antes de la sentencia fprintf() se espera a que los
+    procesos hijos creados finalicen primero su ejecucion para que el padre
+    continue ejecutandose. Ningun proceso queda zombie.
+    
+    6- Al colocar el wait despues de la sentencia fprintf() los procesos son
+    atendidos en el orden en que son creados y ninguno queda zombie.
+    
+    7- Aqui se puede observar que todos los procesos acceden a un recurso y 
+    escriben en el cuando el sistema operativo les asigna la salida estandar;
+    en cualquier orden. Hay procesos que quedan zombies.
+    
+    8- Al colocar el wait antes de la sentencia prtastr() se espera a que los 
+    procesos hijos terminen de utilizar la salida de error estandar para que los
+    procesos padre continuen ejecutandose. No hay procesos zombies.
+    
+    9- Al colocar el wait despues de la sentencia prtastr() los procesos son
+    atendidos en el orden en que son creados, primero a los procesos padres.
+    Ningun proceso hijo queda zombie.
